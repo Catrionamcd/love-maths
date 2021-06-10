@@ -16,13 +16,22 @@ document.addEventListener("DOMContentLoaded", function() {
       })
     } 
     
-    runGame("addition");
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    })
+
+        runGame("addition");
 })
 /**
  * The main game loop, called when the script is first loaded & after
  * the user's answer has been processed
  */
 function runGame(gameType) {
+
+    document.getElementById("answer-box").value = "";
+    document.getElementById("answer-box").focus();
 
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
